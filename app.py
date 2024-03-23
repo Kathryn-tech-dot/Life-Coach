@@ -1,9 +1,12 @@
 import nltk
 nltk.download('popular')
+nltk.download('vader_lexicon')
 from nltk.stem import WordNetLemmatizer
+from nltk.sentiment import SentimentIntensityAnalyzer
 import pickle
 import numpy as np
 from keras.models import load_model
+
 import json
 import random
 import os
@@ -243,48 +246,79 @@ def chatbot():
         return render_template('chatbot.html', chat_history=[])
 
 
+# Route for processing user input and generating chatbot response
 @app.route("/process_input", methods=["POST"])
 def process_input():
     data = request.json
-    user_input = data.get("user_input")
+    user_input = data.get("input")
     bot_response = chatbot_response(user_input)
     return jsonify({'response': bot_response})
 
 
-@app.route('/recommendations')
-def recommendations():
-    return render_template('recommendations.html')
 
                      # FIRST OBJECTIVE
+def initialize_sentiment_analyzer():
+    from nltk.sentiment import SentimentIntensityAnalyzer
+    return SentimentIntensityAnalyzer()
 
-# Function to perform sentiment analysis
-def analyze_sentiment(text):
-    sentiment = TextBlob(text).sentiment.polarity
-    if sentiment > 0:
-        return 'positive'
-    elif sentiment == 0:
-        return 'neutral'
+# Initialize the sentiment analyzer
+sid = SentimentIntensityAnalyzer()
+
+# Route for performing sentiment analysis
+@app.route('/sentiment_analysis', methods=['POST'])
+def perform_sentiment_analysis():
+    data = request.json
+    conversation = data.get('conversation')
+
+    if not conversation:
+        return jsonify({'error': 'No conversation data provided'}), 400
+
+    # Perform sentiment analysis on the conversation
+    # Tokenize the conversation into sentences
+    sentences = nltk.sent_tokenize(conversation)
+
+    # Initialize the sentiment scores
+    total_score = 0
+
+    # Analyze the sentiment of each sentence and calculate the total score
+    for sentence in sentences:
+        sentiment_score = sid.polarity_scores(sentence)['compound']
+        total_score += sentiment_score
+
+    # Calculate the average sentiment score
+    average_score = total_score / len(sentences)
+
+    # Determine the sentiment label based on the average score
+    if average_score > 0.05:
+        sentiment_result = "Positive"
+        response = "Hurray! Continue with the spirit."
+    elif average_score < -0.05:
+        sentiment_result = "Negative"
+        response = "I'm so sorry you're going through a lot. Kindly speak to me or go to the recommendations and get to listen to some motivational videos and read articles to feel motivated."
     else:
-        return 'negative'
+        sentiment_result = "Neutral"
+        response = "Keep up with the spirit."
 
-# Route to track progress and perform sentiment analysis
-@app.route("/track_progress", methods=["GET", "POST"])
-def track_progress():
-    data = request.json  # Get conversation data from the request
-    user_input = data.get("user_input")
-    bot_response = data.get("bot_response")
+    # Return the sentiment result and the appropriate response
+    return jsonify({'sentiment_result': sentiment_result, 'response': response})
 
-    # Perform sentiment analysis on user input
-    user_sentiment = analyze_sentiment(user_input)
-    # Perform sentiment analysis on bot response
-    bot_sentiment = analyze_sentiment(bot_response)
+# Route for getting recommendations
+@app.route('/recommendations', methods=['GET'])
+def get_recommendations():
+    return render_template('recommendations.html')
 
-    # Determine the sentiment distribution
-    sentiment_distribution = {'positive': 0, 'neutral': 0, 'negative': 0}
-    sentiment_distribution[user_sentiment] += 1
-    sentiment_distribution[bot_sentiment] += 1
+# Route for showing notifications
+@app.route('/notifications',methods=['GET'])
+def show_notifications():
+    # Return "No notifications yet" message
+    notifications = "No notifications yet"
+    return render_template('notifications.html', notifications=notifications)
 
-    # Return the sentiment distribution as JSON
-    return jsonify(sentiment_distribution)
+
+# Route for logging out and redirecting to homepage
+@app.route('/logout')
+def logout():
+    # Redirect to homepage
+    return redirect(url_for('homepage'))
 if __name__ == "__main__":
     app.run(debug=True)
