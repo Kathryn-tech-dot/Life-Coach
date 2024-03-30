@@ -1,0 +1,249 @@
+/* Resetting default margin and padding */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container styles */
+.container {
+  display: flex; /* Use flexbox for layout */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Set initial display of the dashboard to none */
+.dashboard {
+  display: none;
+}
+
+/* Style for overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Dashboard styles */
+.dashboard {
+  width: 150px; /* Set width of the dashboard */
+  background-color: pink; /* Light gray background */
+  padding: 20px; /* Add some padding */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  font-weight:bold;
+  height:680px;
+}
+
+/* List of icons styles */
+.dashboard-icons {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+  margin: 8px; /* Remove default margin */
+  flex-grow: 1; /* Grow to fill remaining space */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: space-around; /* Distribute items evenly along the main axis */
+}
+
+/* Individual icon item styles */
+.dashboard-icons li {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  padding: 10px; /* Add some padding */
+}
+
+/* Icon styles */
+.dashboard-icons li i {
+  margin-right: 10px; /* Add some space to the right of the icon */
+}
+
+.chatbot-container {
+  width: 900px;
+  margin: 0 auto;
+  background-color: #ccccff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#chatbot {
+  background-color: #ccccff;
+  border: 1px solid #eef1f5;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+#header {
+  background-color: palevioletred;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  align-items: center;
+}
+
+.message-container {
+  background: #ccccff; 
+  width: 1000px;
+  display: flex;
+}
+
+#inputContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-top: 1px solid #ccc;
+}
+
+#input {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+#sendButton {
+  background-color: #008e97;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#chatContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 15px;
+}
+
+#conversation {
+  height: 500px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes message-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CSS to style user messages */
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-text {
+  text-align: right;
+  background-color: #DCF8C6; /* Light green background for user messages */
+  color: #333333;
+  font-size: 1.1em;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS to style chatbot messages */
+.chatbot-message {
+  display: flex;
+}
+
+.chatbot-text {
+  background-color: #ccccff; /* Light blue background for chatbot messages */
+  color: #333333;
+  font-size: 1.1em;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Adjust positioning of user message timestamp */
+.user-message p[sentTime]:hover::after {  
+  right: 15px; /* Position timestamp on the right side */
+}
+
+#input-form {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #eef1f5;
+}
+
+#input-field {
+  flex: 1;
+  height: 60px;
+  border: 1px solid #eef1f5;
+  border-radius: 26px;
+  padding: 0px 250px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  background-color: white;
+  color: #333333;
+  border: none;
+}
+
+.send-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#input-field:focus {
+  border-color: #333333;
+  outline: none;
+}
+
+#submit-button {
+  background-color: transparent;
+  border: none;
+}
+
+p[sentTime]:hover::after {    
+  content: attr(sentTime);
+  position: absolute;
+  top: -3px;
+  font-size: 14px;
+  color: gray;
+}
+
+.chatbot p[sentTime]:hover::after {  
+  left: 15px;
+}
+
+.user-message p[sentTime]:hover::after {  
+  right: 15px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
