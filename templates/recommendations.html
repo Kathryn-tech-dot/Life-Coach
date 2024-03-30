@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    background-image: url('static/recommendation.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+        
+        .container {
+            max-width: 900px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        /* Recommendation Styles */
+        .recommendations-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .recommendations-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .recommendation-list {
+            list-style: none;
+            padding: 0;
+        }
+        .recommendation-item {
+            margin-bottom: 10px;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animations to elements */
+        .recommendations-container {
+            /* Other styles */
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .recommendation-item {
+            /* Other styles */
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.1s; /* Delay each item's animation */
+        }
+        .recommendation-item a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .recommendation-item a:hover {
+            color: #0056b3;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .close-button:hover {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+            <button class="close-button" onclick="goBack()">
+                <i class="fas fa-times"></i> Close
+            </button>
+            <h2>Stay Informed and Empowered!</h2>
+            <p>Explore these resources to learn more about overcoming challenges and finding support.</p>
+            <ul class="recommendation-list">
+                <li class="recommendation-item">
+                    <a href="https://www.drugabuse.gov/">National Institute on Drug Abuse (NIDA)</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.apa.org/topics/depression">American Psychological Association - Depression</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.psychologytoday.com/us/therapy-types/depression">Therapy for Depression - Psychology Today</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://drugabuse.com/peer-pressure/">Peer Pressure and Substance Abuse - DrugAbuse.com</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007">Mayo Clinic - Depression</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.samhsa.gov/">Substance Abuse and Mental Health Services Administration (SAMHSA)</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.helpguide.org/home-pages/depression.htm">Depression and Anxiety - HelpGuide</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.healthychildren.org/English/ages-stages/teen/Pages/Peer-Pressure-and-Teen-Substance-Abuse.aspx">Peer Pressure: Its Influence on Teens and Decision Making - HealthyChildren.org</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Depression">National Alliance on Mental Illness (NAMI) - Depression</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.verywellmind.com/peer-pressure-and-substance-abuse-22238">Understanding Peer Pressure in Substance Abuse - Verywell Mind</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://dualdiagnosis.org/depression-and-addiction/">Depression and Addiction - Dual Diagnosis</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://www.webmd.com/depression/guide/role-therapy-depression">The Role of Therapy in Treating Depression - WebMD</a>
+                </li>
+                <li class="recommendation-item">
+                    <a href="https://childmind.org/article/how-to-help-kids-resist-peer-pressure/">Peer Pressure: Why It Seems Worse Than Ever and How to Help Kids Resist
+                
+                        <li class="recommendation-item">
+                            <a href="https://www.nimh.nih.gov/health/topics/depression/index.shtml">National Institute of Mental Health (NIMH) - Depression</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.helpguide.org/home-pages/addiction.htm">Understanding Drug Abuse and Addiction - HelpGuide</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.verywellmind.com/types-of-therapy-for-depression-1067402">Types of Therapy for Depression - Verywell Mind</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://americanaddictioncenters.org/teen-substance-abuse/peer-pressure">Peer Pressure and Substance Abuse in Adolescents - American Addiction Centers</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.psychiatry.org/patients-families/depression/what-is-depression">Depression: Symptoms, Causes, Treatments - American Psychiatric Association</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.recovery.org/topics/drug-abuse-treatment/">Drug Abuse Treatment and Rehabilitation - Recovery.org</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://kidshealth.org/en/teens/peer-pressure.html">Coping with Peer Pressure - KidsHealth</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.addictioncenter.com/addiction/depression/">Depression and Substance Abuse: A Dual Diagnosis Guide - Addiction Center</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.talkspace.com/blog/depression-therapy/">Therapy for Depression: What You Should Know - Talkspace</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.therecoveryvillage.com/recovery-blog/peer-pressure-and-teen-drug-use/">Peer Pressure and Teen Drug Use - The Recovery Village</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.medicalnewstoday.com/articles/8933">Depression: Causes, Symptoms, Treatments - Medical News Today</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.helpguide.org/home-pages/drug-abuse.htm">Drug Abuse and Addiction: Recognizing the Signs and Symptoms - HelpGuide</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.goodtherapy.org/learn-about-therapy/issues/depression/group">Group Therapy for Depression - GoodTherapy</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://childmind.org/article/how-to-help-kids-resist-peer-pressure/">Peer Pressure in Adolescence: How to Help Teens Make Healthy Choices - Child Mind Institute</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://mhanational.org/issues/dual-diagnosis-substance-abuse-and-mental-health-disorders">Dual Diagnosis: Substance Abuse and Mental Health Disorders - Mental Health America</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.mayoclinic.org/diseases-conditions/depression/in-depth/cognitive-behavioral-therapy/art-20043120">Cognitive Behavioral Therapy (CBT) for Depression - Mayo Clinic</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.webmd.com/mental-health/addiction/teen-drug-abuse-signs#1">Teen Drug Abuse: Signs, Symptoms, and Prevention - WebMD</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.psycom.net/depression.central.treatment.html">Depression Therapy Options: What Works Best? - Psycom</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30599469/">Peer Pressure and Its Influence on Substance Use in Adolescents - NCBI</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.ncadd.org/about-addiction/treatment">Substance Abuse Treatment Programs - National Council on Alcoholism and Drug Dependence (NCADD)</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID">Understanding Peer Pressure and Drug Abuse - National Institute on Drug Abuse (NIDA/NIH)</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID">The Impact of Peer Pressure on Substance Use - Drug Policy Alliance</a>
+                        </li>
+                        <li class="recommendation-item">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID">Teen Drug Abuse Education - It's a Fact! - ItsAFactCaribbean</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <script>
+                // Function to show recommendations with animations and messages
+function showRecommendations() {
+    // Show loading animation while fetching recommendations
+    showLoadingAnimation();
+
+    // Make an AJAX request to the server to fetch recommendations
+    fetch('/recommendations')
+    .then(response => response.json())
+    .then(recommendations => {
+        // Hide loading animation
+        hideLoadingAnimation();
+
+        // Display motivational message
+        displayMotivationalMessage();
+
+        // Display recommendations to the user 
+        renderRecommendations(recommendations);
+
+        // Show close button
+        showCloseButton();
+    })
+    .catch(error => {
+        console.error('Error fetching recommendations:', error);
+        // Show error message
+        displayErrorMessage();
+        // Hide loading animation
+        hideLoadingAnimation();
+    });
+}
+
+
+// Function to render recommendations to the user
+function renderRecommendations(recommendations) {
+    // Get the <ul> element where recommendations will be displayed
+    const recommendationList = document.querySelector(".recommendation-list");
+
+    // Clear any existing recommendations
+    recommendationList.innerHTML = "";
+
+    // Loop through the recommendations and create <li> elements
+    recommendations.forEach(recommendation => {
+        const listItem = document.createElement("li");
+        listItem.className = "recommendation-item";
+        listItem.innerHTML = `<a href="${recommendation.url}">${recommendation.title}</a>`;
+        recommendationList.appendChild(listItem);
+    });
+}
+
+
+// Function to show loading animation
+function showLoadingAnimation() {
+    // Show loading animation on the webpage
+}
+
+// Function to hide loading animation
+function hideLoadingAnimation() {
+    // Hide loading animation on the webpage
+}
+
+// Function to display motivational message
+function displayMotivationalMessage() {
+    // Display motivational message on the webpage
+}
+
+// Function to display error message
+function displayErrorMessage() {
+    // Display error message on the webpage
+}
+
+// Function to show close button
+function showCloseButton() {
+    // Show close button on the webpage
+}
+
+// Function to handle click event on "Get Recommendations" button
+document.getElementById("toggle-recommendations").addEventListener("click", function(event) {
+    event.preventDefault();
+    showRecommendations();
+});
+
+function goBack() {
+            window.history.back(); // Navigate back to the previous page in history
+        }
+            </script>
+        </body>
+        </html>         
+
